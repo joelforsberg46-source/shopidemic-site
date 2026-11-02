@@ -1,13 +1,16 @@
-/* Shopidemic LLC — shared stylesheet. Neutral palette, one accent. */
+/* Shopidemic LLC — shared stylesheet. Black and fire engine red (Joel 2026-11-02). */
 :root {
-  --ink: #1c1f23;
-  --ink-soft: #4a5058;
-  --line: #e2e4e7;
+  --ink: #111111;
+  --ink-soft: #4a4a4a;
+  --line: #e4e4e4;
   --bg: #ffffff;
-  --bg-alt: #f5f5f3;
-  --accent: #0f6b5c;
-  --accent-dark: #0a4f44;
-  --accent-tint: #e7f2ef;
+  --bg-alt: #f6f6f6;
+  --accent: #ce2029;        /* fire engine red */
+  --accent-dark: #a3161e;
+  --accent-tint: #fbe9ea;
+  --black: #0b0b0b;
+  --black-soft: #1a1a1a;
+  --red-on-black: #ff4b4b;  /* brighter red so small text stays readable on black */
   --radius: 10px;
   --max: 1120px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -155,7 +158,7 @@ main { display: block; }
   background: #fff; text-decoration: none; color: var(--ink);
   transition: border-color .15s, box-shadow .15s;
 }
-.tile:hover { border-color: var(--accent); box-shadow: 0 6px 18px rgba(15,107,92,.10); color: var(--ink); }
+.tile:hover { border-color: var(--accent); box-shadow: 0 6px 18px rgba(206,32,41,.14); color: var(--ink); }
 .tile h3 { margin-bottom: .5rem; }
 .tile p { color: var(--ink-soft); flex: 1; margin-bottom: .9rem; }
 .tile .more { color: var(--accent); font-weight: 600; font-size: .95rem; }
@@ -275,3 +278,36 @@ main { display: block; }
   padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 8px; background: #fff;
   font-weight: 500;
 }
+
+/* ---------- Black and red theme (2026-11-02) ---------- */
+/* Black header, hero, call-to-action band and footer; red accents throughout. */
+.site-header { background: rgba(11,11,11,.97); border-bottom: 3px solid var(--accent); }
+.wordmark, .wordmark:hover { color: #fff; }
+.wordmark span { color: var(--accent); }  /* large bold text: fire engine red passes 3:1 on black */
+.nav-desktop a { color: #d6d6d6; }
+.nav-desktop a:hover { color: #fff; background: var(--black-soft); }
+.nav-desktop a[aria-current="page"] { color: var(--red-on-black); }
+.nav-mobile summary { color: #fff; border-color: #3a3a3a; }
+.burger, .burger::before, .burger::after { background: #fff; }
+.nav-mobile ul { background: var(--black); border-bottom: 3px solid var(--accent); box-shadow: 0 12px 24px rgba(0,0,0,.35); }
+.nav-mobile li a { color: #fff; border-bottom-color: #2a2a2a; }
+.nav-mobile a[aria-current="page"] { color: var(--red-on-black); }
+:focus-visible { outline-color: var(--red-on-black); }
+
+.hero { background: linear-gradient(180deg, var(--black), var(--black-soft)); color: #fff; border-bottom: 4px solid var(--accent); }
+.hero h1 { color: #fff; }
+.hero p, .hero p.lead { color: #d6d6d6; }
+.hero .eyebrow { color: var(--red-on-black); }
+.hero a:not(.btn) { color: var(--red-on-black); }
+.hero .btn-ghost { background: transparent; color: #fff; border-color: #fff; }
+.hero .btn-ghost:hover { background: #fff; color: var(--black); border-color: #fff; }
+
+.cta { background: var(--black); border-top: 4px solid var(--accent); }
+.cta .btn { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cta .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+.cta p.cta-sub { color: #cfcfcf; }
+
+.site-footer { background: var(--black); color: #bdbdbd; border-top: 4px solid var(--accent); }
+.site-footer a, .footer-nav a { color: #fff; }
+.site-footer a:hover { color: var(--red-on-black); }
+.sep { color: #6a6a6a; }
